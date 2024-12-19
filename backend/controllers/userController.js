@@ -1,0 +1,1 @@
+//Manages User-related functionality(eg: registration etc)

@@ -1,0 +1,261 @@
+/* Hero Section Container */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    padding: 2rem 4rem;
+    background-color: white; /* Light background color */
+    font-family: Arial, sans-serif;
+    height: 180vh;
+  }
+  
+  /* Hero Content */
+  .hero-content {
+    max-width: 50%;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    color: #21364d;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-content h1 span {
+    color: #308ce2;
+    animation: pulseColor 2s infinite alternate;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  #biman{
+    display: flex;
+
+  }
+  @keyframes bounce {
+    0% {
+      transform: translateY(-9px);
+    }
+    25% {
+      transform: translateY(-10px);
+    }
+    70% {
+      transform: translateY(-9px);
+    }
+    75% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .cta-btn {
+    padding: 15px 30px;
+    font-size: 16px;
+    background-color: #bcdb34;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: pulseColor 1s infinite alternate;
+    animation: bounce 1s infinite;
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .cta-btn:hover {
+    transform: scale(1.1);
+    background-color: #2980b9;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-btn:active {
+    transform: scale(0.9);
+    background-color: #1c5b88;
+      color: #ecf0f1;
+  }
+  
+  /* Image Section */
+  .image-section img {
+    width: 600px; /* Adjust to the mockup image size */
+    height: auto;
+  }
+  
+  /* Steps Section */
+  .steps-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .step-circle {
+    width: 50px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #308ce2;
+  }
+  
+  .step-content h3 {
+    font-size: 1.2rem;
+    color: #21364d;
+    margin-bottom: 0.3rem;
+  }
+  
+  .step-content p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  /* Pulse Animation */
+  @keyframes pulseColor {
+    0% {
+      color: #308ce2;
+    }
+    100% {
+      color: #21364d;
+    }
+  }
+  /* Steps Section */
+.steps-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .step.active {
+    border: 2px solid #308ce2;
+    background-color: #f0f8ff;
+  }
+  
+  .step-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .step.active .step-circle {
+    background-color: #308ce2;
+  }
+  
+  .step-content h3 {
+    font-size: 1.2rem;
+    color: #21364d;
+    margin-bottom: 0.3rem;
+  }
+  
+  .step-content p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  .loan-container {
+    font-family: Arial, sans-serif;
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Eligibility Section */
+  .eligibility {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+
+  }
+  
+  .eligibility-box {
+    text-align: center;
+    border: none;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Tabs */
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .tabs button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  
+  .tabs button.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* Tab Content */
+  .tab-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    text-align: center;
+    border: px solid #ddd;
+  }
+  
+  .fees {
+    text-align: center;
+    font-size: 1.1em;
+  }
+  @media (max-width: 768px) {
+    #biman{
+        display: grid;
+    }
+    .hero{
+        height: 300vb;
+    }
+  }
