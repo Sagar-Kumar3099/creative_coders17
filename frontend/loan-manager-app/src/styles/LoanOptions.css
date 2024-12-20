@@ -1,50 +1,106 @@
 .loan-options {
-    padding: 3rem 1.5rem;
+    padding: 4rem 2rem;
     text-align: center;
-    background: #7da7d4;
-
+    background: #f7f8fc;
   }
   
   .loan-options h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2.5rem;
+    color: #2c3e50;
   }
   
   .loan-cards {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 2.5rem;
     flex-wrap: wrap;
   }
   
   .card {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    border: 2px solid #fcb69f;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 340px;
     text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .card:nth-child(2) {
+    background: linear-gradient(135deg, #a8edea, #fed6e3);
+    border: 2px solid #a8edea;
+  }
+  
+  .card:nth-child(3) {
+    background: linear-gradient(135deg, #cfd9df, #e2ebf0);
+    border: 2px solid #cfd9df;
+  }
+  
+  .card:nth-child(4) {
+    background: linear-gradient(135deg, #f9f9d3, #e3eaa7);
+    border: 2px solid #f9f9d3;
+  }
+  
+  .card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
   }
   
   .card h3 {
+    font-size: 1.8rem;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    color: #2c3e50;
   }
   
   .card p {
-    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #34495e;
   }
   
   .card button {
-    background: #007bff;
-    color: #fff;
-    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
     border: none;
+    border-radius: 25px;
     cursor: pointer;
-    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
   }
   
-  .card button:hover {
-    background: #0056b3;
+  .learn-more-btn {
+    background: #2c3e50;
+    color: #fff;
+    margin-right: 1rem;
   }
- 
+  
+  .learn-more-btn:hover {
+    background: #34495e;
+    transform: scale(1.05);
+  }
+  
+  .apply-now-btn {
+    background: #27ae60;
+    color: #fff;
+  }
+  
+  .apply-now-btn:hover {
+    background: #1e8449;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .loan-options {
+      padding: 3rem 1rem;
+    }
+  
+    .card {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+  
