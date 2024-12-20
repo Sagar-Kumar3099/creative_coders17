@@ -3,7 +3,7 @@ import '../styles/HeroSection.css';
 import loanImage from '../assets/loanImage.png';
 
 const HeroSection = () => {
-  // State to track active step
+ 
   const [activeStep, setActiveStep] = useState(1);
 
   // Steps data
@@ -144,7 +144,8 @@ const HeroSection = () => {
                 </tr>
               </tbody>
             </table>
-          ) : (
+          ) :
+           (
             <div className="fees">
               <p>
                 <strong>Processing Fee:</strong> 4 - 6 % + GST

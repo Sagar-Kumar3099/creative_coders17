@@ -1,0 +1,152 @@
+.loan-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e8f5e9; /* Light green background */
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    flex-wrap: wrap;
+  }
+  
+  .left-section {
+    max-width: 50%;
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .left-section h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .left-section ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .left-section ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .apply-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #00a651; /* Green button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .apply-button:hover {
+    background-color: #007c41;
+  }
+  
+  .right-section {
+    max-width: 45%;
+    flex: 1;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    animation: blink-border 1.5s infinite; 
+  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+  }
+ 
+  
+  .right-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .quick-actions {
+    position: absolute;
+    top: 20%;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .quick-button {
+    width: 50px;
+    height: 50px;
+    background-color: #00a651;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .quick-button:hover {
+    background-color: #007c41;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .loan-banner {
+      flex-direction: column;
+      padding: 15px;
+    }
+  
+    .left-section,
+    .right-section {
+      max-width: 100%;
+      text-align: center;
+    }
+  
+    .left-section h1 {
+      font-size: 20px;
+    }
+  
+    .apply-button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  
+    .quick-actions {
+      position: static;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 10px;
+    }
+  
+    .quick-button {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .left-section h1 {
+      font-size: 18px;
+    }
+  
+    .left-section ul li {
+      font-size: 14px;
+    }
+  
+    .apply-button {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+  
+    .quick-button {
+      width: 35px;
+      height: 35px;
+      font-size: 14px;
+    }
+  }
+  

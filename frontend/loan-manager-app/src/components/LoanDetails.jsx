@@ -5,6 +5,7 @@ const LoanDetails = () => {
   const loans = useSelector((state) => state.loans); // Accessing the loans from Redux state
 
   return (
+    
     <div className="loan-details-container">
       <h2>Loan Details</h2>
       {loans.length === 0 ? (
@@ -34,7 +35,7 @@ const LoanDetails = () => {
         </table>
       )}
     </div>
-  );
-};
-
+  
+  )
+}
 export default LoanDetails;
