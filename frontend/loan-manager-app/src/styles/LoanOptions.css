@@ -82,7 +82,7 @@
     transform: scale(1.05);
   }
   
-  .apply-now-btn {
+  #apply-now-btn {
     background: #27ae60;
     color: #fff;
   }
