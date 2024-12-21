@@ -1,0 +1,59 @@
+/* Center the login container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #4caf50, #81c784);
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Style the login form */
+  .login-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  /* Style the form fields */
+  .form-field {
+    margin-bottom: 20px;
+  }
+  
+  /* Style the login button */
+  .login-btn {
+    background-color: #4caf50;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-btn:hover {
+    background-color: #388e3c;
+  }
+  
+  /* Style the secondary button */
+  .secondary-btn {
+    color: #4caf50;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .secondary-btn:hover {
+    color: #388e3c;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    .login-form {
+      padding: 20px;
+    }
+  }
+  

@@ -15,5 +15,8 @@
     scroll-behavior: smooth;
    
   }
-  
+  button {
+    background-color: blue; /* Your base color */
+    transition: all 0.3s ease;
+  }
   

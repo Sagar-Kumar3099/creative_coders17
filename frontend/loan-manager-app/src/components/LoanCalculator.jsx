@@ -18,7 +18,9 @@ const LoanCalculator = () => {
   const emi = calculateEMI(loanAmount, loanTenure, interestRate).toFixed(2);
 
   return (
+    
     <div className="loan-calculator">
+      
       <h2>Preferred Loan Amount</h2>
       <input
         type="number"
@@ -37,7 +39,7 @@ const LoanCalculator = () => {
           step={1}
           value={loanTenure}
           onChange={(e) => setLoanTenure(Number(e.target.value))}/>
-          
+
         <div className="tenure-label">{loanTenure}</div>
       </div>
 

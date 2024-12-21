@@ -1,25 +1,50 @@
-import React, { useState } from 'react';
-import { TextField, Button, Stepper, Step, StepLabel, Box } from '@mui/material';
-import { useDispatch } from 'react-redux';
-import { setLoanDetails } from '../redux/loanSlice';
-import axios from 'axios';
-
+import React, { useState } from "react";
+import { TextField, Button, Stepper, Step, StepLabel, Box } from "@mui/material";
+import { useLocation, useNavigate } from "react-router-dom";
+import "../styles/loanform.css"; // Importing the CSS
 
 const LoanForm = () => {
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const loanType = location.state?.loanType || "General Loan";
 
   const [activeStep, setActiveStep] = useState(0);
   const [formData, setFormData] = useState({
-    personalInfo: { name: '', email: '' },
-    financialInfo: { income: '', creditScore: '' },
-    documents: { idProof: '' },
+    personalInfo: { name: "", email: "" },
+    financialInfo: { income: "", creditScore: "" },
+    documents: { idProof: "" },
   });
+  const [errors, setErrors] = useState({});
 
-  const steps = ['Personal Info', 'Financial Info', 'Upload Documents'];
+  const steps = ["Personal Info", "Financial Info", "Upload Documents"];
 
-  const handleNext = () => setActiveStep((prev) => prev + 1);
+  // Validate form fields
+  const validateStep = (step) => {
+    const currentErrors = {};
+    const currentStep = Object.keys(formData)[step];
+    const stepData = formData[currentStep];
+
+    Object.keys(stepData).forEach((field) => {
+      if (!stepData[field]) {
+        currentErrors[field] = "This field is required.";
+      }
+    });
+
+    setErrors(currentErrors);
+    return Object.keys(currentErrors).length === 0;
+  };
+
+  // Move to next step if all fields are valid
+  const handleNext = () => {
+    if (validateStep(activeStep)) {
+      setActiveStep((prev) => prev + 1);
+    }
+  };
+
+  // Go back to previous step
   const handleBack = () => setActiveStep((prev) => prev - 1);
 
+  // Handle changes in input fields
   const handleChange = (e, stepKey) => {
     setFormData({
       ...formData,
@@ -28,18 +53,34 @@ const LoanForm = () => {
         [e.target.name]: e.target.value,
       },
     });
-  };
 
-  const handleSubmit = async () => {
-    try {
-      const response = await axios.post('http://localhost:4000/api/loans', formData);
-      dispatch(setLoanDetails(response.data));
-      alert('Loan application submitted successfully!');
-    } catch (error) {
-      console.error('Error submitting loan application:', error);
+    // Clear errors when user starts typing
+    if (errors[e.target.name]) {
+      setErrors({ ...errors, [e.target.name]: "" });
     }
   };
 
+  // Submit the form data
+  const handleSubmit = () => {
+    const { personalInfo, financialInfo, documents } = formData;
+
+    // Validation check before submitting
+    if (
+      !personalInfo.name ||
+      !personalInfo.email ||
+      !financialInfo.income ||
+      !financialInfo.creditScore ||
+      !documents.idProof
+    ) {
+      alert("Please fill out all fields before submitting.");
+      return;
+    }
+
+    // Redirect to LoanDetails page and pass data via state
+    navigate("/loan-details", { state: { formData } });
+  };
+
+  // Render content for each step
   const renderStepContent = (step) => {
     switch (step) {
       case 0:
@@ -49,17 +90,21 @@ const LoanForm = () => {
               name="name"
               label="Name"
               value={formData.personalInfo.name}
-              onChange={(e) => handleChange(e, 'personalInfo')}
+              onChange={(e) => handleChange(e, "personalInfo")}
               fullWidth
               margin="normal"
+              error={!!errors.name}
+              helperText={errors.name}
             />
             <TextField
               name="email"
               label="Email"
               value={formData.personalInfo.email}
-              onChange={(e) => handleChange(e, 'personalInfo')}
+              onChange={(e) => handleChange(e, "personalInfo")}
               fullWidth
               margin="normal"
+              error={!!errors.email}
+              helperText={errors.email}
             />
           </>
         );
@@ -70,17 +115,21 @@ const LoanForm = () => {
               name="income"
               label="Income"
               value={formData.financialInfo.income}
-              onChange={(e) => handleChange(e, 'financialInfo')}
+              onChange={(e) => handleChange(e, "financialInfo")}
               fullWidth
               margin="normal"
+              error={!!errors.income}
+              helperText={errors.income}
             />
             <TextField
               name="creditScore"
               label="Credit Score"
               value={formData.financialInfo.creditScore}
-              onChange={(e) => handleChange(e, 'financialInfo')}
+              onChange={(e) => handleChange(e, "financialInfo")}
               fullWidth
               margin="normal"
+              error={!!errors.creditScore}
+              helperText={errors.creditScore}
             />
           </>
         );
@@ -88,11 +137,13 @@ const LoanForm = () => {
         return (
           <TextField
             name="idProof"
-            label="ID Proof"
+            label="Adhar no."
             value={formData.documents.idProof}
-            onChange={(e) => handleChange(e, 'documents')}
+            onChange={(e) => handleChange(e, "documents")}
             fullWidth
             margin="normal"
+            error={!!errors.idProof}
+            helperText={errors.idProof}
           />
         );
       default:
@@ -101,16 +152,17 @@ const LoanForm = () => {
   };
 
   return (
-    <Box sx={{ width: '50%', margin: 'auto', mt: 5 }}>
-      <Stepper activeStep={activeStep} alternativeLabel>
+    <Box className="loan-form-container">
+      <h2 className="loan-form-title">{loanType} Application</h2>
+      <Stepper activeStep={activeStep} alternativeLabel className="loan-form-stepper">
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
           </Step>
         ))}
       </Stepper>
-      <Box sx={{ mt: 3 }}>{renderStepContent(activeStep)}</Box>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
+      <Box className="loan-form-content">{renderStepContent(activeStep)}</Box>
+      <Box className="loan-form-buttons">
         <Button disabled={activeStep === 0} onClick={handleBack}>
           Back
         </Button>
