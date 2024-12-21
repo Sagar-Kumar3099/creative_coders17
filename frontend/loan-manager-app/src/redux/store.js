@@ -1,9 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit';
-import loanReducer from './loanSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import loanReducer from "./loanSlice"; // Import loanReducer
 
 const store = configureStore({
   reducer: {
-    loan: loanReducer,
+    loans: loanReducer, // Add loanReducer under "loans"
   },
 });
 

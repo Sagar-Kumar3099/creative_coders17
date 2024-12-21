@@ -1,0 +1,41 @@
+.loan-form-container {
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    background: linear-gradient(135deg, #4caf50, #81c784);
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .loan-form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  .loan-form-stepper {
+    background-color: transparent;
+  }
+  
+  .loan-form-content {
+    margin-top: 20px;
+  }
+  
+  .loan-form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  button {
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #388e3c;
+    color: white;
+  }
+  
