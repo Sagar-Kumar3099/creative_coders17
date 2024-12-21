@@ -1,6 +1,10 @@
 import React from 'react';
 import '../styles/LoanBanner.css';
+
 import loanfamily from '../assets/loanfamily.png';
+const handleApplyNow = () => {
+  navigate('/LoanOptions'); // Navigate to loan form
+};
 
 const LoanBanner = () => {
   const handleWhatsAppClick = () => {
@@ -17,7 +21,7 @@ const LoanBanner = () => {
           <li>100% paperless process</li>
           <li>Flexible repayment tenure</li>
         </ul>
-        <button className="apply-button">Apply Now</button>
+        <button  id="apply-button" onClick={() => handleScroll('personal-loan')}>Apply Now</button>
       </div>
       <div className="right-section">
         <img src={loanfamily} alt="Loan Process" />

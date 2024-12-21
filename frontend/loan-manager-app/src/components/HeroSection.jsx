@@ -28,7 +28,7 @@ const HeroSection = () => {
           Fast & Easy <span>Loans</span> for Your Needs
         </h1>
         <p>Get Personal or Business Loans approved quickly with MyLoan.</p>
-        <button className="cta-btn">Apply Now</button>
+        <button id="cta-btn">Apply Now</button>
       </div>
       <div className="hero1-content">
         <h1>

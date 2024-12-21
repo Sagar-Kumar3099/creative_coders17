@@ -33,7 +33,7 @@
     line-height: 1.5;
   }
   
-  .apply-button {
+  #apply-button {
     margin-top: 20px;
     padding: 10px 20px;
     background-color: #1a9254; /* Green button */
