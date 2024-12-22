@@ -20,7 +20,7 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors('*'));
 app.use(bodyParser.json());
 
 
@@ -36,6 +36,8 @@ app.use('/api/loans', loanRoutes);
 app.post("/signup", async (req, res) => {
   const { username, password } = req.body;
 
+  console.log(username)
+
   // Check if the username is already in use
   const existingUser = await User.findOne({ username });
   if (existingUser) {
@@ -45,7 +47,7 @@ app.post("/signup", async (req, res) => {
   // Hash the password before saving it
   const hashedPassword = await bcrypt.hash(password, 10);
 
-  const newUser = new User({ username, password: hashedPassword });
+  const newUser = new User({ 'username': username, 'password': hashedPassword });
   await newUser.save();
 
   res.status(201).json({ message: "User registered successfully" });
