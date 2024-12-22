@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { TextField, Button, Typography, Paper } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Signup.css'; // Import the styles
+import axios from 'axios';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -32,15 +33,41 @@ const Signup = () => {
 
     // Clear error message on successful validation
     setError('');
+ 
+    //--- Commented/Edited by Sagar ----------------
+    // // Save user info to localStorage (store email for simplicity)
+    // localStorage.setItem('user', JSON.stringify({ email }));
 
-    // Save user info to localStorage (store email for simplicity)
-    localStorage.setItem('user', JSON.stringify({ email }));
+    // // Optionally, you could also save password or other details securely,
+    // // but for this example, we're just storing the email.
 
-    // Optionally, you could also save password or other details securely,
-    // but for this example, we're just storing the email.
+    // alert('Account created successfully!');
+    async function signup() {
+      try {
+        // const response = await axios.post('http://localhost/signup', 
+        // { 
+        //    'username': email,
+        //    'password': password
+        // });
+        const response = await axios.post('http://localhost:5000/signup',{ 
+          'username': email,
+          'password': password
+       }, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        alert(response.data.message); // Display success message
+        navigate('/login');
 
-    alert('Account created successfully!');
-    navigate('/login');
+    } catch (error) {
+        console.log(error);
+        
+        console.error(error.response?.data || 'Error occurred');
+        alert(error.response?.data.error || 'Signup failed');
+    }
+    }
+    signup()
   };
 
   const handleInputChange = (e, field) => {

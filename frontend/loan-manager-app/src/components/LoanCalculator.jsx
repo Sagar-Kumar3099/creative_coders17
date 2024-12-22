@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import "../styles/LoanCalculator.css";
+import { useNavigate } from "react-router-dom";
 
 const LoanCalculator = () => {
   const [loanAmount, setLoanAmount] = useState(250000);
   const [loanTenure, setLoanTenure] = useState(24); 
   const interestRate = 14; // Annual interest rate in percentage
-
+  const navigate = useNavigate();
+  const handleApplyNow = () => {
+    navigate('/loan-form'); // Navigate to loan form
+  };
   // EMI Calculation Function
   const calculateEMI = (principal, tenure, rate) => {
     const monthlyRate = rate / 12 / 100; // Convert annual rate to monthly decimal
@@ -50,7 +54,7 @@ const LoanCalculator = () => {
         <p>At Annualised Interest Rate (14% p.a)</p>
       </div>
 
-      <button className="apply-btn">Apply For Personal Loan</button>
+      <button className="apply-btn" onClick={handleApplyNow}>Apply For Personal Loan</button>
     </div>
   );
 };

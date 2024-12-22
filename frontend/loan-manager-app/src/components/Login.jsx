@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { TextField, Button, Typography, Paper } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { login } from '../redux/authSlice';
 import { useNavigate } from 'react-router-dom';
 import '../styles/login.css'; // Importing the CSS
+import axios from 'axios';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -11,13 +12,22 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    if (email === 'user@example.com' && password === 'password123') {
-      dispatch(login({ email }));
-      navigate('/dashboard'); // Redirect to dashboard
-    } else {
-      alert('Invalid credentials!');
-    }
+  const handleLogin = async () => {
+      try {
+        const response = await axios.post('http://localhost:5000/login',{ 
+          'username': email,
+          'password': password
+       }, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        alert(response.data.message); 
+        dispatch(login({ email }));
+        navigate('/home-page'); // Redirect to dashboard
+      } catch(error) {
+        alert(error);
+      }
   };
 
   return (
